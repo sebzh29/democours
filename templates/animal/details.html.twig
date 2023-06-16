@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello AnimalController for details!{% endblock %}
+{% block body %}
+    <h1>Animal details</h1>
+
+    {%  if animal %}
+        <p>l'animal qui a ete récupérer s'appelle {{  animal.name }} et est une {{ animal.specie }}</p>
+    {%  else %}
+        <p>Il n'y a pas d'animal correspondant à cet id en BDD</p>
+    {%  endif %}
+
+{#    <p>Ceci est le paramètre id passé en URL :</p>#}
+{#    <ul>#}
+{#        {% for characteristic in animal %}#}
+{#            <li>{{ characteristic }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>{#}
+{% endblock %}

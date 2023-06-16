@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }} Je suis la ! ✅</h1>
+    <h2>Bonjour {{ firstName }}</h2>
+
+    {# je crée variable dans laquelle je mets la valeur "Finistere" #}
+    {% set region = "Finistère" %}
+    {% set number = 1200.456 %}
+    {% set hobbits = ["Sam", "Frodon"] %}
+    {%  set fellowship = {
+        'dwarf' : 'Gimli',
+        'human1' : 'toto',
+        'human2' : 'tutu'
+    } %}
+
+   <h2> {{ region }}</h2>
+
+    {%  if region == "Normandie" %}
+        <p>Putain de beurre doux</p>
+    {%  elseif region == "Finistère" %}
+        <p>Nous sommes actuellement dans la région {{ region }}</p>
+        <p>On est bien chez nous!!!</p>
+        <p>{{ number|round(2) }}</p>
+    {%  elseif region == "Alpes"%}
+        <p>On va se ballader</p>
+    {% else %}
+        <p>Je ne sais pas ou je suis</p>
+    {% endif %}
+
+    {% for hobbit in hobbits %}
+        <li>{{ hobbit|upper }}</li>
+    {% endfor %}
+
+    {% for key, val in fellowship %}
+        <p>{{ val }} est un {{ key }}</p>
+    {% endfor %}
+
+    {%  set random_number = 1564854.325478 %}
+    <p>{{ random_number|number_format(2, ',', ' ') }}</p>
+
+    <p>Il y a {{ hobbits|length }} hobbits dans mon tableau</p>
+
+
+</div>
+{% endblock %}

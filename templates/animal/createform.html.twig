@@ -1,0 +1,50 @@
+{% extends './base.html.twig' %}
+
+{% block title %}Form Animal create{% endblock %}
+{% block body %}
+    <h1>Création formulaire animal</h1>
+
+{#    {{ form(animalForm) }}#}
+    {{ form_start(animalForm) }}
+
+
+<div class="container">
+    <div>
+        <div class="mt-20, color1">
+            {{ form_label(animalForm.name) }} <br>
+            {{ form_widget(animalForm.name) }} <br>
+            {{ form_errors(animalForm.name) }}
+        </div>
+    </div>
+    <br>
+        <div class="mt-20, color2">
+            {{ form_label(animalForm.birthDate) }} <br>
+            {{ form_widget(animalForm.birthDate) }} <br>
+            {{ form_errors(animalForm.birthDate) }}
+        </div>
+    <br>
+        <div class="mt-20, color1">
+            {{ form_label(animalForm.specie) }} <br>
+            {{ form_widget(animalForm.specie) }} <br>
+            {{ form_errors(animalForm.specie) }}
+        </div>
+    <br>
+        <div class="mt-20, color2">
+            {{ form_label(animalForm.placeOfBirth) }} <br>
+            {{ form_widget(animalForm.placeOfBirth) }} <br>
+            {{ form_errors(animalForm.placeOfBirth) }}
+        </div>
+    <br>
+    <div class="mt-20, color2">
+        {{ form_label(animalForm.serial) }} <br>
+        {{ form_widget(animalForm.serial) }} <br>
+        {{ form_errors(animalForm.serial) }}
+    </div>
+
+        <button class="mt-20" type="submit">Submit</button>
+</div>
+
+
+    {{ form_end(animalForm) }}
+
+{% endblock %}

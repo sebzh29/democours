@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}Custom animal{% endblock %}
+{% block body %}
+    <div>
+        <h1>Hello animal Custom</h1>
+        <p>Les animaux dans mon zoo sont :</p>
+        <ul>
+{#            {% for animal in animals %}#}
+
+{#                <li>Mon animal s'appelle {{ animal.name }} et il vient de {{ animal.placeOfBirth }}</li>#}
+{#            {% endfor %}#}
+            {{ animal.name }} {{ animal.id }}
+        </ul>
+    </div>
+{% endblock %}

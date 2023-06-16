@@ -1,0 +1,28 @@
+h1 {
+    background-color: darkblue;
+    color: white;
+}
+.container {
+    padding: 40px;
+
+    background-color: darkcyan;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+
+.color1 {
+    background-color: #5B21B6;
+    color: red;
+}
+
+.color2 {
+    background-color: pink;
+    color: blue;
+}
+.alert-success {
+    background-color: greenyellow;
+}
+.alert-danger {
+    background-color: red;
+}
