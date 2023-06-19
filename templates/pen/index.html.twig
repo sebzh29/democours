@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PenController!{% endblock %}
+
+{% block body %}
+    <h1>Liste de mon zoos</h1>
+
+    {% for pen in pens %}
+        <p>{{ pen.name }}</p>
+        <p>Animals :</p>
+        <ul>
+            {%  for animal in pen.animals %}
+                <li> {{ animal.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+{% endblock %}

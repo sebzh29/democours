@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Animal;
+use App\Entity\Pen;
 use Doctrine\DBAL\Types\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,7 +23,7 @@ class AnimalType extends AbstractType
                     'label' => 'Nom',
                     'required'=>true,
                     'attr' => [
-                        'placeholder' => "veuillez renseignr votre nom"
+                        'placeholder' => "veuillez renseigner votre nom"
                     ]
                 ])
             ->add(
@@ -32,6 +34,15 @@ class AnimalType extends AbstractType
             ->add('specie')
             ->add('placeOfBirth')
             ->add('serial')
+            ->add('pen',
+                EntityType::class,
+            [
+                'class'=> Pen::class,
+                'choice_label' => 'name',
+                'label' => 'Enclos',
+                'multiple' => false,
+                'required' => false
+            ])
         ;
     }
 
