@@ -1,9 +1,20 @@
 <nav>
     <ul>
-        <li><a href="{{ url('app_main') }}">Home</a></li>
-        <li>Articles</li>
-        <li><a href="{{ path('app_cesar') }}">Cesar</a></li>
-        <li>Contact-us</li>
-        <li>Login</li>
+
+
+        {% if is_granted("ROLE_SUPERADMIN") %}
+            <li><a href="{{ path('animal_list') }}">Liste de Zanimo</a></li>
+        {% endif %}
+        {%  if is_granted("ROLE_ADMIN") %}
+            <li><a href="{{ path('animal_create') }}">Ajout d'un animal</a></li>
+        {% endif %}
+        {% if app.user %}
+            <li><a href="{{ path('app_logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Login</a></li>
+            <li><a href="{{ path('app_register') }}">Register</a></li>
+        {% endif %}
+
+
     </ul>
 </nav>

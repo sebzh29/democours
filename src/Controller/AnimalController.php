@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use function Symfony\Component\Clock\now;
 
 #[Route('/animal', name: 'animal_')]
@@ -21,6 +22,7 @@ class AnimalController extends AbstractController
         3 => ["Lion", "Ethiopie"],
         4 => ["Flamant rose", "Egypte"]
     ];
+    #[IsGranted("ROLE_USER")]
     #[Route('/', name: 'list')]
     public function list(AnimalRepository $animalRepository): Response
     {
@@ -43,6 +45,7 @@ class AnimalController extends AbstractController
         requirements: ["id" => "\d+"],
         methods: ["GET"]
     )]
+    #[IsGranted("ROLE_SUPERADMIN")]
     public function details($id, AnimalRepository $animalRepository): Response
     {
         $animal = $animalRepository->find($id);
@@ -51,6 +54,7 @@ class AnimalController extends AbstractController
             "animal" => $animal
         ]);
     }
+    #[IsGranted("ROLE_ADMIN")]
     #[route('/create', name: 'create')]
     public function create(EntityManagerInterface $entityManager, \Symfony\Component\HttpFoundation\Request $request): Response
     {
